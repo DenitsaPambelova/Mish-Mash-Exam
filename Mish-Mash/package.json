@@ -1,0 +1,30 @@
+{
+  "name": "mish-mash",
+  "version": "0.0.1",
+  "description": "Mish-Mash",
+  "main": "index.js",
+  "engines": {
+    "node": "7.10.0",
+    "npm": "4.2.0"
+  },
+  "keywords": [
+    "mish",
+    "mash"
+  ],
+  "author": "AZ",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "1.4.3",
+    "express": "^4.16.3",
+    "express-handlebars": "3.0.0",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.2.10",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

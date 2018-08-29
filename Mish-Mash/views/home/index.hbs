@@ -1,0 +1,98 @@
+{{#if currentUser}} {{#if currentUser.roles}}
+<h4 class="text-mishmash text-center">Welcome, Admin-{{currentUser.username}}!</h4>
+{{else}}
+<h4 class="text-mishmash text-center">Welcome, {{currentUser.username}}!</h4>
+{{/if}}
+<h5 class="text-mishmash">Your channels</h5>
+{{#if user.followedChannels}}
+<hr class="hr-2 bg-mishmash">
+<div class="followed-channels-holder">
+    <div class="channels-row row ">
+        {{#each user.followedChannels}}
+        <div class="channel col mx-3 bg-mishmash rounded py-3">
+            <h6 class="channel-name text-white text-center">{{this.name}}</h6>
+            <hr class="bg-white hr-2 w-75">
+            <h6 class="channel-name text-white text-center">{{this.type}} Channel</h6>
+            <hr class="bg-white hr-2 w-75">
+            <h6 class="channel-name text-white text-center">{{this.followers.length}} Following</h6>
+            <hr class="bg-white hr-2 w-75">
+            <div class="follow-button-holder d-flex justify-content-center">
+                <h6>Following</h6>
+            </div>
+        </div>
+        {{/each}}
+        <div class="channel col mx-3 bg-white rounded py-3"></div>
+        <div class="channel col mx-3 bg-white rounded py-3"></div>
+        <div class="channel col mx-3 bg-white rounded py-3"></div>
+    </div>
+</div>
+{{/if}}
+
+<h5 class="mt-4 text-mishmash">Suggested</h5>
+{{#if sugsChans}}
+<hr class="bg-mishmash hr-2">
+<div class="suggested-channels-holder">
+    <div class="followed-channels-holder">
+        <div class="channels-row row ">
+            {{#each sugsChans}}
+            <div class="channel col mx-3 bg-mishmash rounded py-3">
+                <h6 class="channel-name text-white text-center">{{this.name}}</h6>
+                <hr class="bg-white hr-2 w-75">
+                <h6 class="channel-name text-white text-center">{{this.type}} Channel</h6>
+                <hr class="bg-white hr-2 w-75">
+                <h6 class="channel-name text-white text-center">{{this.followers.length}} Following</h6>
+                <hr class="bg-white hr-2 w-75">
+                <div class="follow-button-holder d-flex justify-content-between w-50 mx-auto">
+                    <form id="follow-form-{{this._id}}" action="/follow" method="post">
+                        <input name="followId" type="text" value="{{this._id}}" style="display: none" />
+                    </form>
+                    <a href="javascript:document.getElementById('follow-form-{{this._id}}').submit()"><h6 class="text-center text-white">Follow</h6></a>
+                    <a href="/channels/details/{{this._id}}"><h6 class="text-center text-white">Details</h6></a>
+                </div>
+            </div>
+            {{/each}}
+            <div class="channel col mx-3 bg-white rounded py-3"></div>
+            <div class="channel col mx-3 bg-white rounded py-3"></div>
+            <div class="channel col mx-3 bg-white rounded py-3"></div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+<h5 class="mt-4 text-mishmash">See Other</h5>
+{{#if otherChanels}}
+<hr class="mt-4 bg-mishmash hr-2">
+<div class="other-channels-holder mb-5">
+    <div class="channels-row row ">
+        {{#each otherChanels}}
+        <div class="channel col mx-3 bg-mishmash rounded py-3">
+            <h6 class="channel-name text-white text-center">{{this.name}}</h6>
+            <hr class="bg-white hr-2 w-75">
+            <h6 class="channel-name text-white text-center">{{this.type}} Channel</h6>
+            <hr class="bg-white hr-2 w-75">
+            <h6 class="channel-name text-white text-center">{{this.followers.length}} Following</h6>
+            <hr class="bg-white hr-2 w-75">
+            <div class="follow-button-holder d-flex justify-content-between w-50 mx-auto">
+                <form id="follow-form-{{this._id}}" action="/follow" method="post">
+                    <input name="followId" type="text" value="{{this._id}}" style="display: none" />
+                </form>
+                <a href="javascript:document.getElementById('follow-form-{{this._id}}').submit()"><h6 class="text-center text-white">Follow</h6></a>
+                <a href="/channels/details/{{this._id}}"><h6 class="text-center text-white">Details</h6></a>
+            </div>
+        </div>
+        {{/each}}
+
+        <div class="channel col mx-3 bg-white rounded py-3"></div>
+        <div class="channel col mx-3 bg-white rounded py-3"></div>
+        <div class="channel col mx-3 bg-white rounded py-3"></div>
+        <div class="channel col mx-3 bg-white rounded py-3"></div>
+    </div>
+</div>
+{{/if}} {{else}}
+<div class="jumbotron mt-3 bg-mishmash">
+    <h1 class="text-white">Welcome to Mish-Mash Media Channels</h1>
+    <hr class="bg-white hr-2" />
+    <h3 class="text-white"><a href="/login">Login</a> if you have an account.</h3>
+    <h3 class="text-white"><a href="/register">Register</a> if you don't.</h3>
+</div>
+{{/if}}
