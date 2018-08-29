@@ -1,2 +1,2 @@
 # Mish-Mash-Exam
-Build on ExpressJs, Mongoose and MongoDB
+Web application built on ExpressJs, Mongoose and MongoDB
